@@ -358,7 +358,7 @@ This project showcases:
 
 ### Paras Jadhav
 
-Aspiring Data Analyst | Aspiring Data Scientist | Machine Learning Enthusiast | B.Tech Student
+Data Analyst | Aspiring Data Scientist | Machine Learning Enthusiast
 
 **Skills**
 
@@ -368,7 +368,6 @@ Aspiring Data Analyst | Aspiring Data Scientist | Machine Learning Enthusiast | 
 - Machine Learning
 - Data Visualization
 - Data Analytics
-
 ---
 
 ## ⭐ Project Status
