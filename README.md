@@ -1,12 +1,12 @@
 # 🚇 MumbaiMobilityIQ
 
-## Smart Urban Mobility Demand Forecasting & Analytics Platform
+## Urban Mobility Demand Forecasting using Machine Learning and Time-Series Analytics
 
 MumbaiMobilityIQ is an end-to-end Data Science and Machine Learning project focused on forecasting public transportation demand using historical ridership data, temporal patterns, and external factors.
 
 The project leverages large-scale transit ridership data to build predictive models capable of forecasting future passenger demand, identifying congestion trends, and generating actionable mobility insights.
 
-Inspired by the challenges of urban transportation systems such as Mumbai's local train network, the platform demonstrates how data-driven forecasting can support smarter transit planning and resource allocation.
+While the project utilizes the MTA Daily Ridership Dataset (2020–2025) for model development and evaluation, the forecasting framework is designed to address urban mobility challenges faced by densely populated metropolitan cities such as Mumbai.
 
 ---
 
@@ -234,7 +234,7 @@ The project evaluates multiple forecasting approaches.
 Model performance is evaluated using:
 
 ```text
-MAE  (Mean Absolute Error)
+MAE (Mean Absolute Error)
 
 RMSE (Root Mean Squared Error)
 
@@ -313,6 +313,7 @@ The platform is designed to generate insights such as:
 ### Advanced Forecasting
 
 - Prophet Forecasting
+- LightGBM Models
 - LSTM Deep Learning Models
 - Multivariate Time-Series Forecasting
 
@@ -357,7 +358,7 @@ This project showcases:
 
 ### Paras Jadhav
 
-Aspiring Data Analyst | Data Science Enthusiast
+Aspiring Data Analyst | Aspiring Data Scientist | Machine Learning Enthusiast | B.Tech Student
 
 **Skills**
 
@@ -393,4 +394,5 @@ Currently Under Development
 
 MumbaiMobilityIQ aims to demonstrate how machine learning and analytics can be applied to transportation systems to improve forecasting accuracy, understand mobility patterns, and support data-driven urban planning decisions.
 
+### ⭐ If you found this project interesting, consider starring the repository.
 ---
