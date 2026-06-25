@@ -1,41 +1,57 @@
 # 🚇 MumbaiMobilityIQ
 
-## Smart Public Transport Demand Forecasting & Analytics Platform for Mumbai
+## Smart Urban Mobility Demand Forecasting & Analytics Platform
 
-MumbaiMobilityIQ is an end-to-end Data Science project that leverages historical transportation, weather, and calendar data to forecast public transport demand across Mumbai's urban mobility network.
+MumbaiMobilityIQ is an end-to-end Data Science and Machine Learning project focused on forecasting public transportation demand using historical ridership data, temporal patterns, and external factors.
 
-The platform combines data analytics, machine learning, and interactive visualization to help understand passenger demand patterns, identify congestion trends, and predict future ridership volumes.
+The project leverages large-scale transit ridership data to build predictive models capable of forecasting future passenger demand, identifying congestion trends, and generating actionable mobility insights.
 
----
-
-## 📌 Project Overview
-
-Mumbai's public transportation system serves millions of passengers daily through:
-
-- Mumbai Metro
-- Mumbai Local Trains
-- BEST Bus Services
-- Public Transit Networks
-
-Passenger demand is heavily influenced by factors such as:
-
-- Weather conditions
-- Weekends and holidays
-- Seasonal trends
-- Festivals and public events
-- Historical travel patterns
-
-MumbaiMobilityIQ aims to forecast transportation demand and generate actionable insights that can support better planning and resource allocation.
+Inspired by the challenges of urban transportation systems such as Mumbai's local train network, the platform demonstrates how data-driven forecasting can support smarter transit planning and resource allocation.
 
 ---
 
-## 🎯 Objectives
+## 🎯 Project Objectives
 
-- Analyze transportation demand patterns across Mumbai.
-- Understand the impact of weather and calendar events on ridership.
-- Build machine learning models to forecast future passenger demand.
-- Visualize trends and predictions through an interactive dashboard.
+- Forecast daily public transport ridership using historical demand patterns.
+- Analyze passenger trends across multiple transit modes.
+- Identify seasonality, peak travel periods, and demand fluctuations.
+- Build machine learning models for accurate ridership prediction.
+- Develop interactive dashboards for transportation analytics.
 - Generate explainable insights for decision-making.
+
+---
+
+## 📊 Dataset
+
+This project utilizes the **MTA Daily Ridership Dataset (2020–2025)**, which contains daily ridership information across multiple transportation services.
+
+### Data Sources
+
+#### Transit Ridership Data
+
+- Daily Subway Ridership
+- Daily Bus Ridership
+- Daily Rail Ridership
+- Daily Bridge & Tunnel Traffic
+
+#### Additional Features (Planned)
+
+- Weather Data
+- Holiday Calendars
+- Event Indicators
+- Seasonal Trends
+
+---
+
+## 📈 Target Variable
+
+Primary forecasting target:
+
+```text
+Subways: Total Estimated Ridership
+```
+
+This variable represents the estimated number of daily subway passengers and serves as the primary metric for demand forecasting.
 
 ---
 
@@ -76,29 +92,32 @@ MumbaiMobilityIQ aims to forecast transportation demand and generate actionable 
 ## 📂 Project Structure
 
 ```text
-MumbaiMobilityIQ/
+MumbaiMobilityIQ
 │
-├── data/
-│   ├── raw/
-│   └── processed/
+├── data
+│   ├── raw
+│   │   └── MTA_Daily_Ridership.csv
+│   │
+│   └── processed
 │
-├── notebooks/
-│   ├── 01_data_cleaning.ipynb
-│   ├── 02_eda.ipynb
-│   ├── 03_feature_engineering.ipynb
-│   └── 04_model_training.ipynb
+├── notebooks
+│   ├── 01_data_understanding.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_feature_engineering.ipynb
+│   └── 05_modeling.ipynb
 │
-├── models/
-│   └── demand_forecasting_model.pkl
+├── models
+│   └── xgboost_ridership_model.pkl
 │
-├── dashboard/
-│   └── powerbi_dashboard.pbix
+├── dashboard
+│   └── mobility_dashboard.pbix
 │
-├── app/
+├── app
 │   └── streamlit_app.py
 │
-├── reports/
-│   └── project_report.pdf
+├── reports
+│   └── final_report.pdf
 │
 ├── requirements.txt
 │
@@ -107,148 +126,221 @@ MumbaiMobilityIQ/
 
 ---
 
-## 📊 Key Features
+## 🔍 Exploratory Data Analysis
 
-### Data Analysis
+The project investigates:
 
-- Demand trend analysis
-- Peak travel period identification
-- Seasonal demand analysis
-- Weather impact analysis
+### Ridership Trends
 
-### Machine Learning Forecasting
+- Daily demand trends
+- Weekly demand patterns
+- Monthly demand patterns
+- Annual ridership trends
 
-- Daily passenger demand prediction
-- Future demand forecasting
-- Performance comparison across models
+### Seasonal Analysis
 
-### Interactive Dashboard
+- Peak commuting periods
+- Holiday effects
+- Weekend vs Weekday behavior
 
-- Ridership trends
-- Weather impact visualizations
-- Forecast dashboards
-- KPI monitoring
+### Demand Variability
 
-### AI-Based Insights
+- Moving averages
+- Trend decomposition
+- Ridership distribution analysis
 
-Example output:
+### Correlation Analysis
 
-> Predicted passenger demand is expected to increase by 14% tomorrow due to:
->
-> - Friday commuter traffic
-> - Moderate rainfall forecast
-> - Upcoming public holiday weekend
+- Feature relationships
+- Demand drivers
+- Lag dependencies
 
 ---
 
-## 📈 Exploratory Data Analysis
+## ⚙️ Feature Engineering
 
-The project explores:
+Features engineered for forecasting include:
 
-- Daily ridership trends
-- Weekly demand patterns
-- Monthly demand patterns
-- Weather-demand relationships
-- Correlation between features
-- Seasonal effects
+### Temporal Features
 
-Visualizations include:
+```text
+Day of Week
+Month
+Quarter
+Year
+Week Number
+Weekend Indicator
+```
 
-- Time-series plots
-- Heatmaps
-- Distribution plots
-- Correlation matrices
-- Demand trend dashboards
+### Lag Features
+
+```text
+Lag_1
+Lag_7
+Lag_14
+Lag_30
+```
+
+### Rolling Statistics
+
+```text
+Rolling Mean (7 Days)
+Rolling Mean (30 Days)
+Rolling Standard Deviation
+```
+
+### Calendar Features
+
+```text
+Public Holidays
+Festival Indicators
+Special Events
+```
+
+### Weather Features (Future Scope)
+
+```text
+Temperature
+Rainfall
+Humidity
+Wind Speed
+```
 
 ---
 
 ## 🤖 Machine Learning Models
 
-Models evaluated:
+The project evaluates multiple forecasting approaches.
 
 ### Baseline Model
 
 - Linear Regression
 
-### Ensemble Models
+### Tree-Based Models
 
 - Random Forest Regressor
 - XGBoost Regressor
 
-### Evaluation Metrics
+### Future Scope
 
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- R² Score
+- Prophet
+- LightGBM
+- LSTM Neural Networks
 
 ---
 
-## 📉 Sample Forecasting Workflow
+## 📏 Evaluation Metrics
+
+Model performance is evaluated using:
 
 ```text
-Historical Data
+MAE  (Mean Absolute Error)
+
+RMSE (Root Mean Squared Error)
+
+R² Score
+
+MAPE (Mean Absolute Percentage Error)
+```
+
+---
+
+## 📉 Forecasting Pipeline
+
+```text
+Data Collection
         ↓
 Data Cleaning
+        ↓
+Exploratory Data Analysis
         ↓
 Feature Engineering
         ↓
 Model Training
         ↓
-Demand Forecast
+Forecast Generation
         ↓
 Dashboard Visualization
         ↓
-AI-Generated Insights
+Insight Generation
 ```
 
 ---
 
-## 📋 Features Engineered
+## 📊 Dashboard Features
 
-Examples include:
+### Executive Overview
 
-- Day of Week
-- Month
-- Weekend Indicator
-- Holiday Indicator
-- Rainfall Levels
-- Temperature
-- Lag Features
-- Rolling Averages
-- Seasonal Indicators
+- Total Ridership
+- Average Daily Ridership
+- Peak Ridership Days
+- Growth Trends
+
+### Demand Analytics
+
+- Daily Demand Trends
+- Weekly Patterns
+- Monthly Trends
+
+### Forecasting Dashboard
+
+- Future Demand Predictions
+- Trend Visualizations
+- Model Performance Metrics
+
+### Operational Insights
+
+- High Congestion Days
+- Demand Surges
+- Seasonal Effects
+
+---
+
+## 💡 Example Business Insights
+
+The platform is designed to generate insights such as:
+
+> Ridership is expected to increase by 12% next week due to weekday commuter demand and favorable seasonal trends.
+
+> Passenger traffic typically peaks on weekdays and declines during weekends and public holidays.
+
+> Rolling demand indicators suggest an upward trend in transit utilization.
 
 ---
 
 ## 🚀 Future Enhancements
 
-- Real-time weather integration
-- Live transit data ingestion
-- Route-level demand forecasting
-- Congestion prediction
-- Deep Learning (LSTM) forecasting
-- API deployment
-- Cloud deployment using AWS
+### Advanced Forecasting
+
+- Prophet Forecasting
+- LSTM Deep Learning Models
+- Multivariate Time-Series Forecasting
+
+### Real-Time Analytics
+
+- Live Transit Data Integration
+- Real-Time Ridership Monitoring
+- API-Based Forecasting
+
+### Smart Mobility Features
+
+- Congestion Prediction
+- Route Optimization
+- Resource Allocation Recommendations
+
+### Deployment
+
+- AWS Deployment
+- Docker Containerization
+- CI/CD Pipeline
 
 ---
 
-## 📷 Dashboard Preview
+## 📚 Skills Demonstrated
 
-Dashboard sections:
+This project showcases:
 
-- Executive Overview
-- Demand Trends
-- Weather Impact Analysis
-- Forecasting Insights
-- Performance Metrics
-
----
-
-## 📚 Learning Outcomes
-
-Through this project, the following skills are demonstrated:
-
-- Data Cleaning
-- Data Preprocessing
+- Data Cleaning & Preprocessing
 - Exploratory Data Analysis
 - Feature Engineering
 - Time-Series Forecasting
@@ -256,37 +348,49 @@ Through this project, the following skills are demonstrated:
 - Model Evaluation
 - Dashboard Development
 - Business Intelligence
+- Data Storytelling
 - End-to-End Data Science Workflow
 
 ---
 
 ## 👨‍💻 Author
 
-**Paras Jadhav**
+### Paras Jadhav
 
-Aspiring Data Analyst & Data Science Enthusiast
+Aspiring Data Analyst | Data Science Enthusiast
+
+**Skills**
 
 - Python
 - SQL
 - Power BI
 - Machine Learning
 - Data Visualization
+- Data Analytics
 
 ---
 
 ## ⭐ Project Status
 
-Currently under active development.
+Currently Under Development
 
-Planned completion phases:
+### Development Roadmap
 
-- [ ] Data Collection
-- [ ] Data Cleaning & Preprocessing
+- [x] Project Setup
+- [x] Dataset Collection
+- [ ] Data Understanding
+- [ ] Data Cleaning
 - [ ] Exploratory Data Analysis
 - [ ] Feature Engineering
-- [ ] Machine Learning Modeling
-- [ ] Power BI Dashboard
-- [ ] Streamlit Deployment
-- [ ] Documentation & Final Report
+- [ ] Model Development
+- [ ] Dashboard Development
+- [ ] Streamlit Application
+- [ ] Final Documentation
+
+---
+
+## 📌 Project Vision
+
+MumbaiMobilityIQ aims to demonstrate how machine learning and analytics can be applied to transportation systems to improve forecasting accuracy, understand mobility patterns, and support data-driven urban planning decisions.
 
 ---
