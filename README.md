@@ -378,7 +378,7 @@ Currently Under Development
 
 - [x] Project Setup
 - [x] Dataset Collection
-- [ ] Data Understanding
+- [x] Data Understanding
 - [ ] Data Cleaning
 - [ ] Exploratory Data Analysis
 - [ ] Feature Engineering
