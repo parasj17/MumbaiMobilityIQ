@@ -98,7 +98,7 @@ MumbaiMobilityIQ
 │   ├── raw
 │   │   └── MTA_Daily_Ridership.csv
 │   │
-│   └── processed
+│   └── clean
 │
 ├── notebooks
 │   ├── 01_data_understanding.ipynb
